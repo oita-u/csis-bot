@@ -36,6 +36,12 @@ class Bot(commands.Bot):
         print(f"[READY]: {self.user}")
         print(f"[GUILDS]: {len(self.guilds)}")
         print(f"[USERS]: {len(self.users)}")
+        
+        # Load all cogs
+        for file in os.listdir('./cogs'):
+            if file.endswith('.py'):
+                await self.reload_extension(f'cogs.{file[:-3]}')
+                
         await self.tree.sync()#スラッシュコマンドを同期
                 
     async def close(self):

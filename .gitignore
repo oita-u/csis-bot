@@ -6,3 +6,4 @@ cogs/join_leave.py
 audio/*
 logs/*
 bot-env/
+url.txt
